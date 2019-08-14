@@ -26,7 +26,7 @@ SECRET_KEY = 'v=s+_90yk)p+=p$qk723nv6*2p&ofqo&w(ig#y=&m1vv2%1xmz'
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1',
-                 'simple-django-task-manager.herokuapp.com']
+                 os.environ.get('HOSTNAME')]
 
 # Application definition
 
@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'django_todo.wsgi.application'
 # }
 
 DATABASES = {'default': dj_database_url.parse(
-    "postgres://wilkjpxdyrypjn:09152418fe32aed54e26606e001b77a55622d2fcab582cab37e9899f319c3e6b@ec2-46-137-120-243.eu-west-1.compute.amazonaws.com:5432/d9ldva45psq0pc")}
+    os.environ.get('DATABASE_URL'))}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
